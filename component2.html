@@ -8,59 +8,29 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 </head>
 
-<body><!--지역 component-->
+<body>
+    <!-- 지역 component -->
     <div id="app">
-        <!-- {{ name }}
-            <button @click="changeText">Click</button>
-
-            <hr> -->
-
-        <suhyun-button></suhyun-button>
-
+        <kossibutton></kossibutton> <!-- kossibutton 사용 -->
     </div>
-     <hr>
     <hr>
-    <div id="app-1"> 
-        <!-- {{ name }}
-            <button @click="changeText">Click</button>
-
-            <hr> -->
-         <suhyun-button></suhyun-button>
+    <hr>
+    <div id="app-1">
+        <kossibutton></kossibutton> <!-- kossibutton 사용 -->
     </div>
     <script>
         Vue.component('hello-world', {
-            template: `<div>hello world </div>`
+            template: `<div>hello world</div>`
         });
-        // Vue.component('suhyun-button', {
-        //     template: `
-        //         <div>
-        //         {{ name }}<br>
-        //          <hello-world>
-        //             </hello-world>
-        //             <button @click = "changeText"> Click</button>
-        //         </div>
-        //          `,
-        //     data() {
-        //         return {
-        //             name: 'suhyun'
-        //         }
-        //     },
-        //     methods: {
-        //         changeText() {
-        //             this.name = 'suhyun updated';
-        //         }
-        //     },
-        // });
 
-        const kossibutton ={
+        const kossibutton = {
             template: `
                 <div>
-                {{ name }}<br>
-                 <hello-world>
-                    </hello-world>
-                    <button @click = "changeText"> Click</button>
+                    {{ name }}<br>
+                    <hello-world></hello-world>
+                    <button @click="changeText">Click</button>
                 </div>
-                 `,
+            `,
             data() {
                 return {
                     name: 'suhyun'
@@ -75,35 +45,19 @@
 
         const app = new Vue({
             el: '#app',
-            component:{ //컴포넌트 등록을 해줘야 사용 가능함
-                'kossibutton':kossibutton
+            components: { 
+                'kossibutton': kossibutton
             }
-            // data:{
-            //     name:'suhyun'
-            // },
-            // methods:{
-            //     changeText(){
-            //         this.name = 'suhyun updated';
-            //     }
-            // },
-        })
+        });
 
         const app1 = new Vue({
-             el: '#app-1',
-        //     // data:{
-        //     //     name: 'kassie'
-        //     // },
-        //     // methods:{
-        //     //     changeText(){
-        //     //         this.name = 'kassie updated';
-        //     //     }
-        //     // },
-         })
-
-
-
-
+            el: '#app-1',
+            components: { // app-1에서도 컴포넌트 등록
+                'kossibutton': kossibutton
+            }
+        });
     </script>
 </body>
+
 
 </html>
