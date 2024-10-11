@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body><!--전역component-->
+        <div id="app">
+            <!-- {{ name }}
+            <button @click="changeText">Click</button>
+
+            <hr> -->
+
+            <suhyun-button></suhyun-button>
+
+        </div>
+        <hr><hr>
+        <div id="app-1">
+            <!-- {{ name }}
+            <button @click="changeText">Click</button>
+
+            <hr> -->
+            <suhyun-button></suhyun-button>
+        </div>
+        <script>
+            Vue.component('hello-world',{
+                template:`<div>hello world </div>`
+            });
+            Vue.component('suhyun-button',{
+                template:`
+                <div>
+                {{ name }}<br>
+                 <hello-world>
+                    </hello-world>
+                    <button @click = "changeText"> Click</button>
+                </div>
+                 `,
+                data() {
+                       return{
+                           name: 'suhyun'
+                       } 
+                },
+                methods: {
+                    changeText() {
+                        this.name = 'suhyun updated';
+                    }
+                },
+            });
+
+            const app = new Vue({
+                el:'#app',
+                // data:{
+                //     name:'suhyun'
+                // },
+                // methods:{
+                //     changeText(){
+                //         this.name = 'suhyun updated';
+                //     }
+                // },
+            })
+
+            const app1 = new Vue({
+                el:'#app-1',
+                // data:{
+                //     name: 'kassie'
+                // },
+                // methods:{
+                //     changeText(){
+                //         this.name = 'kassie updated';
+                //     }
+                // },
+            })
+
+
+
+
+        </script>
+</body>
+</html>
