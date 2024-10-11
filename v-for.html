@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <div>
+            {{people[0].name}} {{people[0].age}}
+        </div>
+        <div>
+            {{people[1].name}} {{people[1].age}}
+        </div>
+        <div>
+            {{people[2].name}} {{people[2].age}}
+        </div>
+        <hr><!--key는 고유한 필드를 넣어야 함 / key는 필수로 넣어야 함-->
+        <div v-for="person,index in people" :key="person.name"> <!--in대신 of도 사용 가능-->
+            {{person.name}} {{person.age}} {{index}} <!--index도 추가해주면 인덱스도 출력 가능-->
+        </div>
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                people:[
+                    {name : 'a', age : 20},
+                    { name: 'b', age:  21 },
+                    { name: 'c', age:  22 },
+                    { name: 'd', age: 23 },
+                    { name: 'e', age: 24 },
+                    { name: 'f', age: 25 },
+
+            ]
+
+            },
+            methods: {
+              
+            },
+        })
+    </script>
+    
+</body>
+</html>

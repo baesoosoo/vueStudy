@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+    <div id="app"><!--여러개를 보여주고 싶을때 template-->
+        <template v-if="number === 1">
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+        </template>
+        <div v-else-if="number === 2">Hi</div>
+        <div v-else>NO</div>
+        <button @click="increateNumber">plus</button> {{number}}
+    </div>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+              number:1
+            },
+            methods: {
+             // toggleShow(){
+             //   this.show=!this.show;  //조건문에 의해 yes태그가 없어짐
+             // } //show라는 것도 있음 이것은 초기에 많이 바뀔때 사용 권장
+              increateNumber(){
+                this.number++;
+              }
+            },
+        })
+    </script>
+    
+</body>
+</html>

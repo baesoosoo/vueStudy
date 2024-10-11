@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+          <form v-on:submit.prevent="submit">
+            <input type="text" v-model="text"><br>
+            {{ text }} <br>
+            <button type="submit">submit</button>
+          </form>
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+                year: 2018,
+                text:'text',
+            },
+            methods:{
+                plus(){
+                    this.year++;
+                },
+                minus(){
+                    this.year--;
+                },
+                submit(){
+                    alert('submited');
+                },
+              
+            }
+        })
+
+    </script>
+    
+</body>
+</html>

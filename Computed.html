@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <button @click="changeEvent">Click</button>
+        {{ reversMessage}}
+        {{ reversMessage}}
+        {{ reversMessage}}
+    </div>
+    <script>
+        new Vue({
+            el:"#app",
+            data:{
+               message:'hello'
+            },
+            methods:{
+                changeEvent(){
+                    this.message='수현';  //데이터가 바뀜을 캐치하고 '현수'로 출력됨
+                }
+
+            },
+            computed:{  //한번만 계산하고 캐싱을 함,중복코드에 사용(hello -> olleh로 출력됨)
+                reversMessage(){
+                    return this.message.split('').reverse().join('')
+                }
+            }
+        })
+    </script>
+    
+</body>
+</html>
